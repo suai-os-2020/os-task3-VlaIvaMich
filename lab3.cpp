@@ -401,7 +401,7 @@ DWORD WINAPI thread_m(LPVOID lpParam) {
     //interval 1
     for (int i = 0; i < 3; i++) {
         WaitForSingleObject(iMutex, INFINITE);
-        cout << "n" << flush;
+        cout << "m" << flush;
         computation();
         ReleaseMutex(iMutex);
     }
