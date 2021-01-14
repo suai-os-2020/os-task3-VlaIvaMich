@@ -11,21 +11,18 @@ HANDLE iMutex;
 HANDLE semG, semH, semK;
 HANDLE start, stop;
 
-DWORD WINAPI Thread_a(LPVOID);
-DWORD WINAPI Thread_b(LPVOID);
-DWORD WINAPI Thread_c(LPVOID);
-DWORD WINAPI Thread_d(LPVOID);
-DWORD WINAPI Thread_e(LPVOID);
-DWORD WINAPI Thread_f(LPVOID);
-DWORD WINAPI Thread_g(LPVOID);
-DWORD WINAPI Thread_g_semaphore(LPVOID);
-DWORD WINAPI Thread_h(LPVOID);
-DWORD WINAPI Thread_h_semaphore(LPVOID);
-DWORD WINAPI Thread_i(LPVOID);
-DWORD WINAPI Thread_k(LPVOID);
-DWORD WINAPI Thread_k_semaphore(LPVOID);
-DWORD WINAPI Thread_m(LPVOID);
-DWORD WINAPI Thread_n(LPVOID);
+DWORD WINAPI thread_a(LPVOID);
+DWORD WINAPI thread_b(LPVOID);
+DWORD WINAPI thread_c(LPVOID);
+DWORD WINAPI thread_d(LPVOID);
+DWORD WINAPI thread_e(LPVOID);
+DWORD WINAPI thread_f(LPVOID);
+DWORD WINAPI thread_g(LPVOID);
+DWORD WINAPI thread_h(LPVOID);
+DWORD WINAPI thread_i(LPVOID);
+DWORD WINAPI thread_k(LPVOID);
+DWORD WINAPI thread_m(LPVOID);
+DWORD WINAPI thread_n(LPVOID);
 
 unsigned int lab3_thread_graph_id() 
 {
