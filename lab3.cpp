@@ -333,7 +333,7 @@ DWORD WINAPI thread_k(LPVOID lpParam) {
     }
 
     //wait i, m
-    WaitForSingleObject(iThread[10], INFINITE);
+    WaitForSingleObject(iThread[9], INFINITE);
     WaitForSingleObject(stop, INFINITE);
 
     iThread[11] = CreateThread(NULL, 0, thread_n, NULL, 0, &ThreadID);
