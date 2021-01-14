@@ -257,7 +257,7 @@ DWORD WINAPI thread_g(LPVOID lpParam) {
 
     for (int i = 0; i < 3; i++) {
         WaitForSingleObject(iMutex, INFINITE);
-        cout << "d" << flush;
+        cout << "g" << flush;
         computation();
         ReleaseMutex(iMutex);
     }
@@ -268,7 +268,7 @@ DWORD WINAPI thread_g(LPVOID lpParam) {
     //interval 2
     for (int i = 0; i < 3; i++) {
         WaitForSingleObject(iMutex, INFINITE);
-        cout << "d" << flush;
+        cout << "g" << flush;
         computation();
         ReleaseMutex(iMutex);
     }
@@ -280,7 +280,7 @@ DWORD WINAPI thread_g(LPVOID lpParam) {
     for (int i = 0; i < 3; i++) {
         WaitForSingleObject(semG, INFINITE);
         WaitForSingleObject(iMutex, INFINITE);
-        cout << "d" << flush;
+        cout << "g" << flush;
         computation();
         ReleaseMutex(iMutex);
         ReleaseSemaphore(semH, 1, NULL);
