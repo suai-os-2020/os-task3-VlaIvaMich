@@ -15,7 +15,7 @@ jobs:
      matrix:
          include:
              - compiler: "msvc15"
-               generator: "Visual Studio 14 2015"
+               generator: "Visual Studio 15 2017"
              - compiler: "MinGW"
                generator: "MinGW Makefiles"
     
