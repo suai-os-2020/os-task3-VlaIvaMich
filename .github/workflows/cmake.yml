@@ -43,4 +43,4 @@ jobs:
       working-directory: ${{github.workspace}}\test
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ../_build/Debug/lab3.exe
+      run: ..\_build\Debug\lab3.exe
