@@ -40,7 +40,8 @@ jobs:
       shell: bash
       working-directory: ${{github.workspace}}\test
       run: |
-        if $COMPILER=='MinGW'; then
+        if [ "$COMPILER"=="MinGW" ] 
+        then
         ../_build/test/runTests.exe
         else
         ../_build/test/$BUILD_TYPE/runTests.exe
