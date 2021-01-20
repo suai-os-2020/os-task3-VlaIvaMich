@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     strategy:
      matrix:
-         generator: ["Visual Studio 14 2015", "MinGW Makefiles"]
+         generator: ['Visual Studio 14 2015', 'MinGW Makefiles']
       
     steps:
     - uses: actions/checkout@v2
