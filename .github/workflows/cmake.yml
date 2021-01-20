@@ -19,7 +19,7 @@ jobs:
              - compiler: "msvc15"
                generator: "Visual Studio 14 2015"
              - compiler: "MinGW"
-               generator: "VinGW Makefiles"
+               generator: "MinGW Makefiles"
       
     steps:
     - uses: actions/checkout@v2
