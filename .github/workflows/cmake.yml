@@ -1,11 +1,13 @@
 name: CMake
 
 on: [push]
-
+    
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
 
+
+    
 jobs:
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -13,7 +15,10 @@ jobs:
     # cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: windows-latest
-
+    strategy:
+     matrix:
+      compiler: ["Visual Studio 14 2015", "MinGW Makefiles"]
+      
     steps:
     - uses: actions/checkout@v2
 
@@ -30,7 +35,7 @@ jobs:
       # Note the current convention is to use the -S and -B options here to specify source 
       # and build directories, but this is only available with CMake 3.13 and higher.  
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
-      run: cmake -G $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
+      run: cmake -G ${{matrix.compiler}} -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
     - name: PreBuildTest
       shell: bash
