@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2    
 
-    - name: Build with matrix.generator
+    - name: Build with ${{matrix.generator}}
       shell: bash
       env: 
         GENERATOR: ${{matrix.generator}}
@@ -33,16 +33,15 @@ jobs:
         cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
         cmake --build . --config $BUILD_TYPE
 
-    - if: matrix.compiler == 'MinGW'
-      name: Test with MinGW
+    - name: Test
+      env:
+        COMPILER: ${{matrix.compiler}}
       timeout-minutes: 15
       shell: bash
       working-directory: ${{github.workspace}}\test
-      run: ../_build/test/runTests.exe
-
-    - if: matrix.compiler == 'msvc15'
-      name: Test with MSVC15
-      timeout-minutes: 15
-      shell: bash
-      working-directory: ${{github.workspace}}\test
-      run: ../_build/test/$BUILD_TYPE/runTests.exe
+      run: |
+        if $COMPILER=='MinGW'; then
+        ../_build/test/runTests.exe
+        else
+        ../_build/test/$BUILD_TYPE/runTests.exe
+        fi
