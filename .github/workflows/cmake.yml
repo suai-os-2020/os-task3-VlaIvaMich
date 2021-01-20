@@ -23,11 +23,6 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       run: cmake -E make_directory _build
 
-    - name: Configure CMake
-      shell: bash
-      working-directory: ${{github.workspace}}\_build
-      run: cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
-
     - name: Build
       working-directory: ${{github.workspace}}
       # Execute the build.  You can specify a specific target with "--target <NAME>"
