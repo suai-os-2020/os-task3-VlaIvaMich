@@ -26,7 +26,9 @@ jobs:
       
     - name: Before build
       shell: bash
-      run: cmake -E make_directory _build
+      run: |
+       cmake -E make_directory _build
+       ls -R
           
     - name: Configure CMake
       env: 
@@ -49,13 +51,7 @@ jobs:
     - name: PreBuildTest
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: |
-        ls
-        cd _build
-        ls
-        cd _test
-        ls
-        cd _gtest
+      run: ls -R
   
     - name: Build
       shell: bash
