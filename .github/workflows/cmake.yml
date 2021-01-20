@@ -27,7 +27,7 @@ jobs:
     - name: Before build
       working-directory: ${{github.workspace}}
       shell: bash
-      run: cmake -E _build
+      run: cmake -E make_directory _build
           
     - name: Configure CMake
       env: 
