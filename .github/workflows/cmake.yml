@@ -26,11 +26,10 @@ jobs:
       
     - name: Before build
       shell: bash
-      run: |
-       cmake -E make_directory _build
-       ls -R
+      run: cmake -E make_directory _build
           
     - name: Configure CMake
+      working-directory: ${{github.workspace}}/_build
       env: 
           GENERATOR: ${{matrix.generator}}
       # Use a bash shell so we can use the same syntax for environment variable
