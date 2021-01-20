@@ -33,7 +33,7 @@ jobs:
           cd ${{github.workspace }}
           mkdir build
           cd build
-          cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ gitgub.workspace }}
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}
           /../vcpkg/scripts/buildsystems/vcpkg.cmake
           
       - name: Build Solution (windows)
