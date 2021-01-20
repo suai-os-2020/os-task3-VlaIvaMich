@@ -24,18 +24,17 @@ jobs:
       run: cmake -E make_directory _build
 
     - name: Configure CMake
-      # Use a bash shell so we can use the same syntax for environment variable
-      # access regardless of the host operating system
+      shell: bash
       working-directory: ${{github.workspace}}\_build
-      # Note the current convention is to use the -S and -B options here to specify source 
-      # and build directories, but this is only available with CMake 3.13 and higher.  
-      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
     - name: Build
-      working-directory: ${{github.workspace}}\_build
+      working-directory: ${{github.workspace}}
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build build --config Release
+      run: |
+        cd _build
+        cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
+        cmake --build . --config Release
 
     - name: Test
       timeout-minutes: 15
