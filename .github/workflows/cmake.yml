@@ -37,7 +37,7 @@ jobs:
 
     - name: for minGW
       shell: bash
-      if: matrix.generator=="MinGW Makefiles"
+      if: matrix.generator=='MinGW Makefiles'
       run: set PATH=C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;%PATH%
     - name: PreBuildTest
       shell: bash
