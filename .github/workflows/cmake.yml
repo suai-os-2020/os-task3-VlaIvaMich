@@ -33,7 +33,7 @@ jobs:
         cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
         cmake --build . --config $BUILD_TYPE
 
-    - name: Test
+    - name: Test with ${{matrix.generator}}
       env:
         COMPILER: ${{matrix.compiler}}
       timeout-minutes: 15
@@ -42,7 +42,7 @@ jobs:
       run: |
         if [ "$COMPILER"=="MinGW" ] 
         then
-        ../_build/test/runTests.exe
+        .. /_build/test/runTests.exe
         else
-        ../_build/test/$BUILD_TYPE/runTests.exe
+        .. /_build/test/$BUILD_TYPE/runTests.exe
         fi
