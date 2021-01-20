@@ -23,6 +23,7 @@ jobs:
       
     steps:
     - uses: actions/checkout@v2
+    - uses: Trass3r/setup-cpp@master
       
     - name: Before build
       shell: bash
@@ -38,10 +39,7 @@ jobs:
       # Note the current convention is to use the -S and -B options here to specify source 
       # and build directories, but this is only available with CMake 3.13 and higher.  
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
-      run: |
-          find C:/ -name "sh.exe"
-          find C:/ -name "mingw32/bin"
-          cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
+      run: cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
     - name: for MinGW
       shell: bash
@@ -49,11 +47,6 @@ jobs:
       run: | 
         set PATH=C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;%PATH%
         rename "C:\Program Files\Git\usr\bin\sh.exe" "sh2.exe"
-      
-    - name: PreBuildTest
-      shell: bash
-      # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: ls -R
   
     - name: Build
       shell: bash
