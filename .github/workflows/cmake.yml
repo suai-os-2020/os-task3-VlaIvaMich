@@ -37,10 +37,8 @@ jobs:
       run: cmake -G $GENERATOR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
     - name: for MinGW
-      env:
-          COMPILER: ${{matrix.compiler}}
       shell: bash
-      if: $COMPILER=='MinGW'
+      if: matrix.compiler=='MinGW'
       run: | 
         set PATH=C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;%PATH%
         rename "C:\Program Files\Git\usr\bin\sh.exe" "sh2.exe"
@@ -70,16 +68,12 @@ jobs:
       run: cmake --build . --config $BUILD_TYPE
 
     - name: Test for MinGW
-      env:
-          COMPILER: ${{matrix.compiler}}
       shell: bash
-      if: $COMPILER == 'msvc15'
+      if: matrix.compiler=='msvc15'
       run: ..\_build\test\%CONFIGURATION%\runTests.exe
       
     - name: Test for msvc15
-      env:
-          COMPILER: ${{matrix.compiler}}
       shell: bash
-      if: $COMPILER == 'msvc15'
+      if: matrix.compiler=='msvc15'
       run: ..\_build\test\%CONFIGURATION%\runTests.exe
    
