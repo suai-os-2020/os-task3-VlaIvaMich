@@ -28,20 +28,16 @@ jobs:
           git checkout --force 2020.01
           .\bootstrap-vcpkg.bat
           .\vcpkg.exe install cppzmq:x64-windows
-          rename "C:\Program Files\Git\usr\bin\sh.exe" "sh2.exe"
+
       - name: Before build
         run: |  
           cd ${{github.workspace }}
-          mkdir build
-          cd build
-              
+          mkdir _build
+          cd _build
+          rename "C:\Program Files\Git\usr\bin\sh.exe" "sh2.exe"
+          
       - name: Running cmake(windows)
         shell: cmd
         run: |
           cmake -DCMAKE_BUILD_TYPE=Release -Dgtest_disable_pthreads=ON ..
           cmake --build . --config Release
-          
-      - name: Build Solution (windows)
-        run: |
-          cd build
-          MSBUILD.exe CMakeHelloWorld.sln
