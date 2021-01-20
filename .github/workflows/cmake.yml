@@ -24,7 +24,7 @@ jobs:
       run: |
         mkdir _build
         cd _build
-        cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
+        cmake -G "MinGW " -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
         cmake --build . --config Release
 
     - name: Test
