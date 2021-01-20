@@ -32,6 +32,13 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
+    - name: PreBuildTest
+      working-directory: ${{github.workspace}}/_build
+      shell: bash
+      # Execute the build.  You can specify a specific target with "--target <NAME>"
+      run: ls
+  
+
     - name: Build
       working-directory: ${{github.workspace}}/_build
       shell: bash
