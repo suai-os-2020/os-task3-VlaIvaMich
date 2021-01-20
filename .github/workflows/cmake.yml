@@ -33,8 +33,8 @@ jobs:
           cd ${{github.workspace }}
           mkdir build
           cd build
-          cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}
-          /../vcpkg/scripts/buildsystems/vcpkg.cmake
+          cmake -G "Visual Studio 14 2015" -DCMAKE_BUILD_TYPE=Release -Dgtest_disable_pthreads=ON ..
+          cmake --build . --config Release
           
       - name: Build Solution (windows)
         run: |
