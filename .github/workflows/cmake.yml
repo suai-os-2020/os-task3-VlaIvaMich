@@ -39,8 +39,8 @@ jobs:
       # and build directories, but this is only available with CMake 3.13 and higher.  
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: |
-          find -name "sh.exe"
-          find -name C:/ "mingw32/bin"
+          find C:/ -name "sh.exe"
+          find C:/ -name "mingw32/bin"
           cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
 
     - name: for MinGW
