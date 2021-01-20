@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2    
 
-    - name: Build with &GENERATOR
+    - name: Build with matrix.generator
       env: 
         GENERATOR: ${{matrix.generator}}
       working-directory: ${{github.workspace}}
