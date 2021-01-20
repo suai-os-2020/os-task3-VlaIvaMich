@@ -40,9 +40,9 @@ jobs:
       shell: bash
       working-directory: ${{github.workspace}}\test
       run: |
-        if [ "$COMPILER"=="MinGW" ] 
+        if [ matrix.os == 'MinGW' ] 
         then
-        .. /_build/test/runTests.exe
+        echo min
         else
-        .. /_build/test/$BUILD_TYPE/runTests.exe
+        echo max
         fi
