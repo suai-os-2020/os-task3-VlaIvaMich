@@ -16,17 +16,17 @@ jobs:
     strategy:
      matrix:
          include:
-             - compiler: msvc15
-               generator: "'Visual Studio 14 2015'"
-             - compiler: MinGW
-               generator: "'MinGW Makefiles'"
+             - compiler: "msvc15"
+               generator: "Visual Studio 14 2015"
+             - compiler: "MinGW"
+               generator: "MinGW Makefiles"
       
     steps:
     - uses: actions/checkout@v2
       
     - name: Configure CMake
       env: 
-          GENERATOR: ${{matrix.generator}}
+          GENERATOR: ${matrix.generator}
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
