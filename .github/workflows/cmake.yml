@@ -15,7 +15,7 @@ jobs:
      matrix:
          include:
              - compiler: "msvc15"
-               generator: "Visual Studio 14 2015 Win64"
+               generator: "Visual Studio 14 2015"
              - compiler: "MinGW"
                generator: "MinGW Makefiles"
     
@@ -29,7 +29,7 @@ jobs:
       run: |
         mkdir _build
         cd _build
-        cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
+        cmake -G " $GENERATOR " -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Dgtest_disable_pthreads=ON ..
         cmake --build . --config $BUILD_TYPE
 
     - if: matrix.compiler == 'MinGW'
