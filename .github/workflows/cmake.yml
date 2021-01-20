@@ -40,7 +40,7 @@ jobs:
       shell: bash
       working-directory: ${{github.workspace}}\test
       run: |
-        if [ matrix.os == 'MinGW' ] 
+        if [ $COMPILER == 'MinGW' ] 
         then
         echo min
         else
