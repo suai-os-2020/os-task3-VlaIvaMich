@@ -42,7 +42,7 @@ jobs:
       run: |
         if [ $COMPILER == 'MinGW' ] 
         then
-        echo min
+        ../_build/test/runTests.exe
         else
-        echo max
+        ../_build/test/$BUILD_TYPE/runTests.exe
         fi
