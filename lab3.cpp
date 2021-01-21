@@ -286,7 +286,7 @@ DWORD WINAPI thread_g(LPVOID lpParam) {
         ReleaseSemaphore(semH, 1, NULL);
     }
 
-    ReleaseSemaphore(stop, 1, NULL);
+   
     return 0;
 }
 
