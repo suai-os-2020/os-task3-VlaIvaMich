@@ -273,7 +273,7 @@ DWORD WINAPI thread_g(LPVOID lpParam) {
         ReleaseMutex(iMutex);
     }
 
-    ReleaseSemaphore(stop, 1, NULL);
+   
     WaitForSingleObject(start, INFINITE);
 
     //interval3
@@ -357,7 +357,7 @@ DWORD WINAPI thread_h(LPVOID lpParam) {
         ReleaseSemaphore(semK, 1, NULL);
     }
 
-    ReleaseSemaphore(stop, 1, NULL);
+
     return 0;
 }
 
